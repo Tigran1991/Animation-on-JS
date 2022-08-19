@@ -56,36 +56,43 @@ const TODOS = [
   },
 ];
 
-gsap
-  .timeline()
-  .from(".left-image", { scale: 2 })
-  .to(".left-image-wrapper", {
-    clipPath: "polygon(0% 0%,100% 0%,100% 100%,0% 100%)",
-  })
-  .to(".left-image-wrapper", { scale: 0.95, duration: 2 });
-
-setTimeout(() => {
-  FRAME1.style.visibility = "visible";
-}, 2000);
-
-setTimeout(() => {
-  CENTER_IMAGE.style.visibility = "visible";
+const playAnimation = () => {
+  LEFT_IAMGE.style.visibility = "visible";
   gsap
     .timeline()
-    .from(".center-image", { scale: 2 })
-    .to(".center-image-wrapper", {
+    .from(".left-image", { scale: 2 })
+    .to(".left-image-wrapper", {
       clipPath: "polygon(0% 0%,100% 0%,100% 100%,0% 100%)",
     })
-    .to(".center-image-wrapper", { scale: 0.95, duration: 2 });
-}, 3000);
+    .to(".left-image-wrapper", { scale: 0.95, duration: 2 });
 
-setTimeout(() => {
-  FRAME2.style.visibility = "visible";
-}, 4000);
+  setTimeout(() => {
+    FRAME1.style.visibility = "visible";
+    gsap.to(FRAME1, { duration: 1, x: 40 });
+  }, 2000);
 
-setTimeout(() => {
-  TODOS.forEach((todo) => {
-    todo.name.style.visibility = "visible";
-    gsap.from(todo.name, todo.property);
-  });
-}, 5000);
+  setTimeout(() => {
+    CENTER_IMAGE.style.visibility = "visible";
+    gsap
+      .timeline()
+      .from(".center-image", { scale: 2 })
+      .to(".center-image-wrapper", {
+        clipPath: "polygon(0% 0%,100% 0%,100% 100%,0% 100%)",
+      })
+      .to(".center-image-wrapper", { scale: 0.95, duration: 2 });
+  }, 3000);
+
+  setTimeout(() => {
+    FRAME2.style.visibility = "visible";
+    gsap.to(FRAME2, { duration: 1, x: 40 });
+  }, 4000);
+
+  setTimeout(() => {
+    TODOS.forEach((todo) => {
+      todo.name.style.visibility = "visible";
+      gsap.from(todo.name, todo.property);
+    });
+  }, 5000);
+};
+
+playAnimation();

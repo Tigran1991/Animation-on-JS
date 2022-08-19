@@ -12,13 +12,15 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+  background: url("./images/Background.png");
 }
 
 .container-left {
   display: flex;
   align-items: center;
   justify-content: end;
-  width: 23%;
+  width: 20%;
   height: 100vh;
 }
 
@@ -27,13 +29,13 @@
 }
 
 .left-image {
-  visibility: visible;
+  visibility: hidden;
 }
 
 .frame1 {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 10%;
   height: 100vh;
 }
@@ -61,7 +63,7 @@
 .frame2 {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 10%;
   height: 100vh;
 }
