@@ -17,20 +17,24 @@
 .container-left {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 30%;
+  justify-content: end;
+  width: 23%;
   height: 100vh;
 }
 
+.left-image-wrapper {
+  clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
+}
+
 .left-image {
-  visibility: hidden;
+  visibility: visible;
 }
 
 .frame1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5%;
+  width: 10%;
   height: 100vh;
 }
 
@@ -42,8 +46,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 22%;
   height: 100vh;
+}
+
+.center-image-wrapper {
+  clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
 }
 
 .center-image {
@@ -54,7 +62,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5%;
+  width: 10%;
   height: 100vh;
 }
 
@@ -64,29 +72,98 @@
 
 .container-right {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
-  width: 30%;
-  height: 100vh;
+  width: 23%;
+  height: 60vh;
 }
 
-.first {
+.todo1 {
   position: absolute;
-  width: 130px;
-  height: 130px;
-  right: -200px;
+  left: 10.75%;
+  right: 66.12%;
+  top: 56.37%;
+  bottom: 15.08%;
+  visibility: hidden;
 }
 
-.second {
+.todo2 {
   position: absolute;
-  width: 130px;
-  height: 130px;
-  right: -200px;
+  left: 41.21%;
+  right: 35.66%;
+  top: 60.27%;
+  bottom: 11.18%;
+  visibility: hidden;
 }
 
-.third {
+.todo3 {
   position: absolute;
-  width: 130px;
-  height: 130px;
-  top: -200px;
+  left: 54.07%;
+  right: 22.8%;
+  top: 40.16%;
+  bottom: 31.29%;
+  visibility: hidden;
+}
+
+.todo4 {
+  position: absolute;
+  left: 72.49%;
+  right: 4.22%;
+  top: 37.04%;
+  bottom: 34.42%;
+  visibility: hidden;
+}
+
+.todo5 {
+  position: absolute;
+  left: 65.67%;
+  right: 11.2%;
+  top: 58.36%;
+  bottom: 13.09%;
+  visibility: hidden;
+}
+
+.todo6 {
+  position: absolute;
+  left: 41.29%;
+  right: 35.58%;
+  top: 30.54%;
+  bottom: 40.91%;
+  visibility: hidden;
+}
+
+.todo7 {
+  position: absolute;
+  left: 5.64%;
+  right: 71.23%;
+  top: 33.32%;
+  bottom: 38.13%;
+  visibility: hidden;
+}
+
+.todo8 {
+  position: absolute;
+  left: 21.59%;
+  right: 55.28%;
+  top: 26.55%;
+  bottom: 44.91%;
+  visibility: hidden;
+}
+
+.todo9 {
+  position: absolute;
+  left: 35.27%;
+  right: 41.6%;
+  top: 11.19%;
+  bottom: 60.27%;
+  visibility: hidden;
+}
+
+.todo10 {
+  position: absolute;
+  left: 63.37%;
+  right: 13.5%;
+  top: 11.23%;
+  bottom: 60.22%;
+  visibility: hidden;
 }
