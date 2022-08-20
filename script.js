@@ -69,7 +69,7 @@ const playAnimation = () => {
   setTimeout(() => {
     FIRST_STEP.style.visibility = "visible";
     gsap.to(FIRST_STEP, { duration: 1, x: 40 });
-  }, 2000);
+  }, 990);
 
   setTimeout(() => {
     ADDING_TEXT.style.visibility = "visible";
@@ -80,19 +80,19 @@ const playAnimation = () => {
         clipPath: "polygon(0% 0%,100% 0%,100% 100%,0% 100%)",
       })
       .to(".adding-text-wrapper", { scale: 0.95, duration: 2 });
-  }, 3000);
+  }, 1100);
 
   setTimeout(() => {
     SECOND_STEP.style.visibility = "visible";
     gsap.to(SECOND_STEP, { duration: 1, x: 40 });
-  }, 4000);
+  }, 2000);
 
   setTimeout(() => {
     TEMPLATES.forEach((template) => {
       template.name.style.visibility = "visible";
       gsap.from(template.name, template.property);
     });
-  }, 5000);
+  }, 2350);
 };
 
 playAnimation();
