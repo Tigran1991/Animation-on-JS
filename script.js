@@ -1,96 +1,96 @@
-const LEFT_IAMGE = document.getElementById("left-image");
-const FRAME1 = document.getElementById("frame1-image");
-const CENTER_IMAGE = document.getElementById("center-image");
-const FRAME2 = document.getElementById("frame2-image");
-const TODO1 = document.getElementById("todo1");
-const TODO2 = document.getElementById("todo2");
-const TODO3 = document.getElementById("todo3");
-const TODO4 = document.getElementById("todo4");
-const TODO5 = document.getElementById("todo5");
-const TODO6 = document.getElementById("todo6");
-const TODO7 = document.getElementById("todo7");
-const TODO8 = document.getElementById("todo8");
-const TODO9 = document.getElementById("todo9");
-const TODO10 = document.getElementById("todo10");
+const IMAGE = document.getElementById("image");
+const FIRST_STEP = document.getElementById("first-step-image");
+const ADDING_TEXT = document.getElementById("adding-text-image");
+const SECOND_STEP = document.getElementById("second-step-image");
+const TEMPLATE1 = document.getElementById("template1");
+const TEMPLATE2 = document.getElementById("template2");
+const TEMPLATE3 = document.getElementById("template3");
+const TEMPLATE4 = document.getElementById("template4");
+const TEMPLATE5 = document.getElementById("template5");
+const TEMPLATE6 = document.getElementById("template6");
+const TEMPLATE7 = document.getElementById("template7");
+const TEMPLATE8 = document.getElementById("template8");
+const TEMPLATE9 = document.getElementById("template9");
+const TEMPLATE10 = document.getElementById("template10");
 
-const TODOS = [
+const TEMPLATES = [
   {
-    name: TODO1,
+    name: TEMPLATE1,
     property: { duration: 1, x: -300, y: -300 },
   },
   {
-    name: TODO2,
+    name: TEMPLATE2,
     property: { duration: 1, x: 300, y: 300 },
   },
   {
-    name: TODO3,
+    name: TEMPLATE3,
     property: { duration: 1, x: -300, y: 300 },
   },
   {
-    name: TODO4,
-    property: { duration: 1, x: -300, y: -300 },
+    name: TEMPLATE4,
+    property: { duration: 1, x: 300, y: -300 },
   },
   {
-    name: TODO5,
+    name: TEMPLATE5,
     property: { duration: 1, x: 300, y: 300 },
   },
   {
-    name: TODO6,
-    property: { duration: 1, x: -300, y: 300 },
+    name: TEMPLATE6,
+    property: { duration: 1, x: 300, y: -300 },
   },
   {
-    name: TODO7,
-    property: { duration: 1, x: -300, y: -300 },
+    name: TEMPLATE7,
+    property: { duration: 1, x: 300, y: -300 },
   },
   {
-    name: TODO8,
+    name: TEMPLATE8,
     property: { duration: 1, x: 300, y: 300 },
   },
   {
-    name: TODO9,
+    name: TEMPLATE9,
     property: { duration: 1, x: -300, y: 300 },
   },
   {
-    name: TODO10,
+    name: TEMPLATE10,
     property: { duration: 1, x: -300, y: 300 },
   },
 ];
 
 const playAnimation = () => {
-  LEFT_IAMGE.style.visibility = "visible";
+  IMAGE.style.visibility = "visible";
   gsap
     .timeline()
-    .from(".left-image", { scale: 2 })
-    .to(".left-image-wrapper", {
+    .from(".image", { scale: 2 })
+    .to(".image-wrapper", {
       clipPath: "polygon(0% 0%,100% 0%,100% 100%,0% 100%)",
     })
-    .to(".left-image-wrapper", { scale: 0.95, duration: 2 });
+    .to(".image-wrapper", { scale: 0.95, duration: 2 });
 
   setTimeout(() => {
-    FRAME1.style.visibility = "visible";
-    gsap.to(FRAME1, { duration: 1, x: 40 });
+    FIRST_STEP.style.visibility = "visible";
+    gsap.to(FIRST_STEP, { duration: 1, x: 40 });
   }, 2000);
 
   setTimeout(() => {
-    CENTER_IMAGE.style.visibility = "visible";
+    ADDING_TEXT.style.visibility = "visible";
     gsap
       .timeline()
-      .from(".center-image", { scale: 2 })
-      .to(".center-image-wrapper", {
+      .from(".adding-text-image", { scale: 2 })
+      .to(".adding-text-wrapper", {
         clipPath: "polygon(0% 0%,100% 0%,100% 100%,0% 100%)",
       })
-      .to(".center-image-wrapper", { scale: 0.95, duration: 2 });
+      .to(".adding-text-wrapper", { scale: 0.95, duration: 2 });
   }, 3000);
 
   setTimeout(() => {
-    FRAME2.style.visibility = "visible";
-    gsap.to(FRAME2, { duration: 1, x: 40 });
+    SECOND_STEP.style.visibility = "visible";
+    gsap.to(SECOND_STEP, { duration: 1, x: 40 });
   }, 4000);
 
   setTimeout(() => {
-    TODOS.forEach((todo) => {
-      todo.name.style.visibility = "visible";
-      gsap.from(todo.name, todo.property);
+    TEMPLATES.forEach((template) => {
+      template.name.style.visibility = "visible";
+      gsap.from(template.name, template.property);
     });
   }, 5000);
 };
