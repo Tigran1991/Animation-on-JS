@@ -14,68 +14,85 @@ const TEMPLATE9 = document.getElementById("template9");
 const TEMPLATE10 = document.getElementById("template10");
 const RELOAD = document.getElementById("reload-btn");
 
-const ANIMATION_ELEMENTS = [IMAGE, FIRST_STEP, ADDING_TEXT, SECOND_STEP];
+const ANIMATION_ELEMENTS = [
+  {
+    name: IMAGE,
+    timer: 500,
+  },
+  {
+    name: FIRST_STEP,
+    timer: 1000,
+  },
+  {
+    name: ADDING_TEXT,
+    timer: 1500,
+  },
+  {
+    name: SECOND_STEP,
+    timer: 2000,
+  },
+];
 
-const TEMPLATES = [
+const ANIMATION_TEMPLATES = [
   {
     name: TEMPLATE1,
     property: { duration: 1, x: -300, y: -300 },
-    moveToX: -10,
-    moveToY: 10,
+    moveToX: -20,
+    moveToY: 20,
   },
   {
     name: TEMPLATE2,
     property: { duration: 1, x: 300, y: 300 },
-    moveToX: 10,
-    moveToY: 10,
+    moveToX: 20,
+    moveToY: 20,
   },
   {
     name: TEMPLATE3,
     property: { duration: 1, x: -300, y: 300 },
-    moveToX: -10,
-    moveToY: 10,
+    moveToX: -20,
+    moveToY: 20,
   },
   {
     name: TEMPLATE4,
     property: { duration: 1, x: 300, y: -300 },
-    moveToX: 10,
-    moveToY: -10,
+    moveToX: 20,
+    moveToY: -20,
   },
   {
     name: TEMPLATE5,
     property: { duration: 1, x: 300, y: 300 },
-    moveToX: 10,
-    moveToY: 10,
+    moveToX: 20,
+    moveToY: 20,
   },
   {
     name: TEMPLATE6,
     property: { duration: 1, x: 300, y: -300 },
-    moveToX: 10,
-    moveToY: -10,
+    moveToX: 20,
+    moveToY: -20,
   },
   {
     name: TEMPLATE7,
     property: { duration: 1, x: 300, y: -300 },
-    moveToX: 10,
-    moveToY: -10,
+    moveToX: 20,
+    moveToY: -20,
   },
   {
     name: TEMPLATE8,
     property: { duration: 1, x: 300, y: 300 },
-    moveToX: 10,
-    moveToY: 10,
+    moveToX: 20,
+    moveToY: 20,
   },
   {
     name: TEMPLATE9,
     property: { duration: 1, x: -300, y: 300 },
-    moveToX: -10,
-    moveToY: 10,
+    moveToX: -20,
+    moveToY: 20,
   },
   {
     name: TEMPLATE10,
     property: { duration: 1, x: -300, y: 300 },
-    moveToX: 10,
-    moveToY: 10,
+    moveToX: 20,
+    moveToY: 20,
   },
 ];
 
@@ -123,14 +140,14 @@ const playAnimation = () => {
   }, 2000);
 
   setTimeout(() => {
-    TEMPLATES.forEach((template) => {
+    ANIMATION_TEMPLATES.forEach((template) => {
       template.name.style.opacity = 1;
       gsap.from(template.name, template.property);
     });
   }, 2350);
 
   setTimeout(() => {
-    TEMPLATES.forEach((template) => {
+    ANIMATION_TEMPLATES.forEach((template) => {
       gsap.to(template.name, {
         duration: 2,
         x: template.moveToX,
@@ -146,20 +163,13 @@ const playAnimation = () => {
   }, 4000);
 
   setTimeout(() => {
+    ANIMATION_ELEMENTS.forEach((element) => {
+      setTimeout(() => {
+        gsap.to(element.name, { opacity: 0 });
+      }, element.timer);
+    });
     setTimeout(() => {
-      gsap.to(IMAGE, { opacity: 0 });
-    }, 500);
-    setTimeout(() => {
-      gsap.to(FIRST_STEP, { opacity: 0 });
-    }, 1000);
-    setTimeout(() => {
-      gsap.to(ADDING_TEXT, { opacity: 0 });
-    }, 1500);
-    setTimeout(() => {
-      gsap.to(SECOND_STEP, { opacity: 0 });
-    }, 2000);
-    setTimeout(() => {
-      TEMPLATES.forEach((template) => {
+      ANIMATION_TEMPLATES.forEach((template) => {
         gsap.to(template.name, { opacity: 0 });
       });
     }, 2500);
@@ -186,11 +196,10 @@ const playAnimation = () => {
   // }, 6000);
 
   setTimeout(() => {
-    gsap.to(IMAGE, { opacity: 1 });
-    gsap.to(FIRST_STEP, { opacity: 1 });
-    gsap.to(ADDING_TEXT, { opacity: 1 });
-    gsap.to(SECOND_STEP, { opacity: 1 });
-    TEMPLATES.forEach((template) => {
+    ANIMATION_ELEMENTS.forEach((element) => {
+      gsap.to(element.name, { opacity: 1 });
+    });
+    ANIMATION_TEMPLATES.forEach((template) => {
       gsap.to(template.name, { opacity: 1 });
     });
     RELOAD.style.opacity = 1;
@@ -200,15 +209,12 @@ const playAnimation = () => {
 playAnimation();
 
 const playAgain = () => {
-  IMAGE.style.opacity = 0;
-  FIRST_STEP.style.opacity = 0;
-  ADDING_TEXT.style.opacity = 0;
-  SECOND_STEP.style.opacity = 0;
-  TEMPLATES.forEach((template) => {
+  ANIMATION_ELEMENTS.forEach((element) => {
+    element.name.style.opacity = 0;
+  });
+  ANIMATION_TEMPLATES.forEach((template) => {
     template.name.style.opacity = 0;
   });
   RELOAD.style.opacity = 0;
   playAnimation();
 };
-
-// setInterval(playAnimation, 7000);
