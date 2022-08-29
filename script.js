@@ -16,8 +16,8 @@ const TEMPLATE10 = document.getElementById("template10-wrapper");
 const ANIMATION_TEMPLATES = [
   {
     name: TEMPLATE1,
-    initialPosition: { x: 200, y: 200, opacity: 0 },
-    finalPosition: { x: 100, y: 100, opacity: 1 },
+    initialPosition: { x: 200, y: 200, opacity: 0, ease: "slow" },
+    finalPosition: { x: 100, y: 100, opacity: 1, ease: "slow" },
   },
   {
     name: TEMPLATE2,
@@ -67,13 +67,12 @@ const ANIMATION_TEMPLATES = [
 ];
 
 const playAnimation = () => {
+  IMAGE.style.opacity = 1;
   gsap
     .timeline()
     .from(IMAGE, { scale: 2 })
     .to(IMAGE, {
       clipPath: "polygon(0% 0%,200% 0%,200% 200%,0% 200%)",
-      opacity: 1,
-      duration: 1,
     })
     .to(IMAGE, { scale: 1, duration: 1 })
     .to(IMAGE, {
@@ -85,13 +84,15 @@ const playAnimation = () => {
 
   setTimeout(() => {
     gsap.to(FIRST_STEP, { duration: 1, x: 60, opacity: 1 });
+  }, 990);
+
+  setTimeout(() => {
+    ADD_TEXT.style.opacity = 1;
     gsap
       .timeline()
       .from(ADD_TEXT, { scale: 2 })
       .to(ADD_TEXT, {
         clipPath: "polygon(0% 0%,200% 0%,200% 200%,0% 200%)",
-        opacity: 1,
-        duration: 1,
       })
       .to(ADD_TEXT, { scale: 0.95, duration: 1 })
       .to(ADD_TEXT, {
@@ -104,6 +105,9 @@ const playAnimation = () => {
 
   setTimeout(() => {
     gsap.to(SECOND_STEP, { duration: 1, x: 40, opacity: 1 });
+  }, 2000);
+
+  setTimeout(() => {
     ANIMATION_TEMPLATES.forEach((template) => {
       gsap
         .timeline()
