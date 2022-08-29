@@ -11,7 +11,247 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <link rel="stylesheet" href="./style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .main-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background: #0066cd;
+      }
+
+      .left-design-element {
+        position: absolute;
+        top: -100px;
+        left: -230px;
+        width: 479px;
+        height: 375px;
+        z-index: 0;
+      }
+
+      .right-design-element {
+        position: absolute;
+        right: -200px;
+        width: 479px;
+        height: 375px;
+        z-index: 0;
+      }
+
+      .animation-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 1200px;
+        height: 408px;
+      }
+
+      .main-image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42%;
+        z-index: 1;
+      }
+
+      .main-image-wrapper {
+        clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
+        opacity: 0;
+      }
+
+      .main-image-wrapper img {
+        max-width: 100%;
+        max-height: 160px;
+        z-index: 1;
+      }
+
+      .first-step-image-wrapper {
+        opacity: 0;
+      }
+
+      .first-step-image-wrapper img {
+        max-width: 100%;
+        max-height: 49px;
+      }
+
+      .add-text-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 16%;
+      }
+
+      .add-text-image-wrapper {
+        clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
+        opacity: 0;
+      }
+
+      .add-text-image-wrapper img {
+        max-width: 100%;
+        max-height: 97px;
+      }
+
+      .second-step-image-wrapper {
+        opacity: 0;
+      }
+
+      .second-step-image-wrapper img {
+        max-width: 100%;
+        max-height: 49px;
+      }
+
+      .templates-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42%;
+      }
+
+      .template-images-wrapper {
+        position: relative;
+        width: 60%;
+        height: 80vh;
+        z-index: 1;
+      }
+
+      .template1-wrapper {
+        position: absolute;
+        right: 10%;
+        top: 40%;
+        opacity: 0;
+      }
+
+      .template1-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      .template2-wrapper {
+        position: absolute;
+        right: 30%;
+        top: 53%;
+        opacity: 0;
+      }
+
+      .template2-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      .template3-wrapper {
+        position: absolute;
+        right: 20%;
+        top: 22%;
+        opacity: 0;
+      }
+
+      .template3-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      .template4-wrapper {
+        position: absolute;
+        right: 40%;
+        top: 20%;
+        opacity: 0;
+      }
+
+      .template4-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      .template5-wrapper {
+        position: absolute;
+        right: 56%;
+        top: 23%;
+        bottom: 60.27%;
+        opacity: 0;
+      }
+
+      .template5-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      .template6-wrapper {
+        position: absolute;
+        right: 60%;
+        top: 50%;
+        opacity: 0;
+      }
+
+      .template6-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      .template7-wrapper {
+        position: absolute;
+        right: 63%;
+        top: 33.32%;
+        opacity: 0;
+      }
+
+      .template7-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      .template8-wrapper {
+        position: absolute;
+        right: 20%;
+        top: 29%;
+        opacity: 0;
+      }
+
+      .template8-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      .template9-wrapper {
+        position: absolute;
+        right: 40%;
+        top: 44%;
+        opacity: 0;
+      }
+
+      .template9-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      .template10-wrapper {
+        position: absolute;
+        right: 16%;
+        top: 49%;
+        opacity: 0;
+      }
+
+      .template10-wrapper img {
+        max-width: 100%;
+        max-height: 129px;
+      }
+
+      /* @media only screen and (max-width: 1114px) {
+        .animation-container {
+          width: 900px;
+        }
+      }
+      @media only screen and (max-width: 910px) {
+        .animation-container {
+          width: 700px;
+        }
+      } */
+    </style>
   </head>
   <body>
     <div class="main-container">
@@ -74,6 +314,143 @@
         <img src="./images/right-side-design-element.png" />
       </div>
     </div>
-    <script src="./script.js"></script>
+    <script>
+      const IMAGE = document.getElementById("main-image-wrapper");
+      const FIRST_STEP = document.getElementById("first-step-image-wrapper");
+      const ADD_TEXT = document.getElementById("add-text-image-wrapper");
+      const SECOND_STEP = document.getElementById("second-step-image-wrapper");
+      const TEMPLATE1 = document.getElementById("template1-wrapper");
+      const TEMPLATE2 = document.getElementById("template2-wrapper");
+      const TEMPLATE3 = document.getElementById("template3-wrapper");
+      const TEMPLATE4 = document.getElementById("template4-wrapper");
+      const TEMPLATE5 = document.getElementById("template5-wrapper");
+      const TEMPLATE6 = document.getElementById("template6-wrapper");
+      const TEMPLATE7 = document.getElementById("template7-wrapper");
+      const TEMPLATE8 = document.getElementById("template8-wrapper");
+      const TEMPLATE9 = document.getElementById("template9-wrapper");
+      const TEMPLATE10 = document.getElementById("template10-wrapper");
+
+      const ANIMATION_TEMPLATES = [
+        {
+          name: TEMPLATE1,
+          initialPosition: { x: 200, y: 200, opacity: 0, ease: "slow" },
+          finalPosition: { x: 100, y: 100, opacity: 1, ease: "slow" },
+        },
+        {
+          name: TEMPLATE2,
+          initialPosition: { x: 100, y: 200, opacity: 0 },
+          finalPosition: { x: 100, y: 100, opacity: 1 },
+        },
+        {
+          name: TEMPLATE3,
+          initialPosition: { x: 200, y: 100, opacity: 0 },
+          finalPosition: { x: 100, y: 200, opacity: 1 },
+        },
+        {
+          name: TEMPLATE4,
+          initialPosition: { x: -100, y: -200, opacity: 0 },
+          finalPosition: { x: -100, y: 100, opacity: 1 },
+        },
+        {
+          name: TEMPLATE5,
+          initialPosition: { x: -100, y: 200, opacity: 0 },
+          finalPosition: { x: 200, y: 100, opacity: 1 },
+        },
+        {
+          name: TEMPLATE6,
+          initialPosition: { x: 100, y: -200, opacity: 0 },
+          finalPosition: { x: 100, y: 100, opacity: 1 },
+        },
+        {
+          name: TEMPLATE7,
+          initialPosition: { x: 100, y: 200, opacity: 0 },
+          finalPosition: { x: 100, y: -100, opacity: 1 },
+        },
+        {
+          name: TEMPLATE8,
+          initialPosition: { x: 200, y: 200, opacity: 0 },
+          finalPosition: { x: -100, y: -100, opacity: 1 },
+        },
+        {
+          name: TEMPLATE9,
+          initialPosition: { x: -100, y: 100, opacity: 0 },
+          finalPosition: { x: 100, y: 100, opacity: 1 },
+        },
+        {
+          name: TEMPLATE10,
+          initialPosition: { x: 100, y: 100, opacity: 0 },
+          finalPosition: { x: 200, y: 100, opacity: 1 },
+        },
+      ];
+
+      const playAnimation = () => {
+        IMAGE.style.opacity = 1;
+        gsap
+          .timeline()
+          .from(IMAGE, { scale: 2 })
+          .to(IMAGE, {
+            clipPath: "polygon(0% 0%,200% 0%,200% 200%,0% 200%)",
+          })
+          .to(IMAGE, { scale: 1, duration: 1 })
+          .to(IMAGE, {
+            duration: 1,
+            y: 10,
+            stagger: { each: 0.15, yoyo: true, repeat: -1 },
+            ease: "sine.inOut",
+          });
+
+        setTimeout(() => {
+          gsap.to(FIRST_STEP, {
+            duration: 1,
+            x: 60,
+            opacity: 1,
+          });
+        }, 990);
+
+        setTimeout(() => {
+          ADD_TEXT.style.opacity = 1;
+          gsap
+            .timeline()
+            .from(ADD_TEXT, { scale: 2 })
+            .to(ADD_TEXT, {
+              clipPath: "polygon(0% 0%,200% 0%,200% 200%,0% 200%)",
+            })
+            .to(ADD_TEXT, { scale: 0.95, duration: 1 })
+            .to(ADD_TEXT, {
+              duration: 1,
+              y: 10,
+              stagger: { each: 0.15, yoyo: true, repeat: -1 },
+              ease: "sine.inOut",
+            });
+        }, 990);
+
+        setTimeout(() => {
+          SECOND_STEP.style.opacity;
+          gsap.to(SECOND_STEP, { duration: 1, x: 40, opacity: 1 });
+        }, 2000);
+
+        setTimeout(() => {
+          ANIMATION_TEMPLATES.forEach((template) => {
+            gsap
+              .timeline()
+              .fromTo(
+                template.name,
+                template.initialPosition,
+                template.finalPosition
+              );
+            gsap.timeline().to(template.name, {
+              x: "random(20, 10, 3)",
+              y: "random(20, 10, 3)",
+              ease: "none",
+              repeat: -1,
+              repeatRefresh: true,
+              duration: 1,
+            });
+          });
+        }, 2000);
+      };
+
+      playAnimation();
+    </script>
   </body>
 </html>
