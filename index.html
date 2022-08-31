@@ -5,12 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animation on JS</title>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"
-      integrity="sha512-GQ5/eIhs41UXpG6fGo4xQBpwSEj9RrBvMuKyE2h/2vw3a9x85T1Bt0JglOUVJJLeyIUl/S/kCdDXlE/n7zCjIg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script src="/gsap.min.js"></script>
     <style>
       * {
         margin: 0;
@@ -21,15 +16,43 @@
       .main-container {
         display: flex;
         flex-direction: row;
-        align-items: center;
         justify-content: center;
         background: #0066cd;
+        overflow: hidden;
+      }
+
+      .animationElement1 {
+        width: 400px;
+        height: 408px;
+        background-color: #333;
+        z-index: 2;
+        background: #0066cd;
+        position: absolute;
+        left: 0;
+      }
+
+      .animationElement2 {
+        width: 400px;
+        height: 408px;
+        background-color: #333;
+        z-index: 2;
+        background: #0066cd;
+        position: absolute;
+        right: 0;
+      }
+
+      .animation-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        width: 900px;
+        height: 408px;
       }
 
       .left-design-element {
         position: absolute;
-        top: -100px;
-        left: -230px;
+        top: 0px;
+        left: -100px;
         width: 479px;
         height: 375px;
         z-index: 0;
@@ -37,42 +60,33 @@
 
       .right-design-element {
         position: absolute;
-        right: -200px;
+        right: -100px;
+        top: 0px;
         width: 479px;
         height: 375px;
         z-index: 0;
-      }
-
-      .animation-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: 1200px;
-        height: 408px;
       }
 
       .main-image-container {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 42%;
-        z-index: 1;
+        width: 30%;
+        z-index: 3;
       }
 
       .main-image-wrapper {
-        clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
         opacity: 0;
       }
 
       .main-image-wrapper img {
         max-width: 100%;
         max-height: 160px;
-        z-index: 1;
       }
 
       .first-step-image-wrapper {
         opacity: 0;
+        z-index: 1;
       }
 
       .first-step-image-wrapper img {
@@ -83,12 +97,12 @@
       .add-text-container {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 16%;
+        justify-content: center;
+        width: 28%;
+        z-index: 3;
       }
 
       .add-text-image-wrapper {
-        clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
         opacity: 0;
       }
 
@@ -99,6 +113,7 @@
 
       .second-step-image-wrapper {
         opacity: 0;
+        z-index: 1;
       }
 
       .second-step-image-wrapper img {
@@ -111,150 +126,132 @@
         align-items: center;
         justify-content: center;
         width: 42%;
+        z-index: 3;
       }
 
       .template-images-wrapper {
+        display: flex;
         position: relative;
-        width: 60%;
-        height: 80vh;
+        width: 99%;
+        height: 50vh;
         z-index: 1;
       }
 
       .template1-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 10%;
-        top: 40%;
+        right: 0%;
+        top: 31.61%;
         opacity: 0;
-      }
-
-      .template1-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
       }
 
       .template2-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 30%;
-        top: 53%;
+        right: 12.56%;
+        top: 9.16%;
         opacity: 0;
-      }
-
-      .template2-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
       }
 
       .template3-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 20%;
-        top: 22%;
+        right: 14.68%;
+        top: 28.69%;
         opacity: 0;
-      }
-
-      .template3-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
       }
 
       .template4-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 40%;
-        top: 20%;
+        right: 33.81%;
+        top: 0%;
         opacity: 0;
-      }
-
-      .template4-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
       }
 
       .template5-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 56%;
-        top: 23%;
-        bottom: 60.27%;
+        right: 53.54%;
+        top: 24.36%;
         opacity: 0;
-      }
-
-      .template5-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
       }
 
       .template6-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 60%;
-        top: 50%;
+        right: 34.72%;
+        top: 28.73%;
         opacity: 0;
-      }
-
-      .template6-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
       }
 
       .template7-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 63%;
-        top: 33.32%;
+        right: 10.08%;
+        top: 57.1%;
         opacity: 0;
-      }
-
-      .template7-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
       }
 
       .template8-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 20%;
-        top: 29%;
+        right: 69.94%;
+        top: 31.54%;
         opacity: 0;
-      }
-
-      .template8-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
       }
 
       .template9-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 40%;
-        top: 44%;
+        right: 35.88%;
+        top: 58.02%;
         opacity: 0;
-      }
-
-      .template9-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
       }
 
       .template10-wrapper {
+        display: flex;
+        width: 131px;
+        height: 129px;
+        z-index: 1;
         position: absolute;
-        right: 16%;
-        top: 49%;
+        right: 57.94%;
+        top: 44.57%;
         opacity: 0;
       }
-
-      .template10-wrapper img {
-        max-width: 100%;
-        max-height: 129px;
-      }
-
-      /* @media only screen and (max-width: 1114px) {
-        .animation-container {
-          width: 900px;
-        }
-      }
-      @media only screen and (max-width: 910px) {
-        .animation-container {
-          width: 700px;
-        }
-      } */
     </style>
   </head>
   <body>
     <div class="main-container">
+      <div class="animationElement1" id="animationElement1"></div>
+      <div class="animationElement2" id="animationElement2"></div>
       <div class="animation-container">
         <div class="main-image-container" id="main-image-container">
           <div class="main-image-wrapper" id="main-image-wrapper">
@@ -307,10 +304,10 @@
           </div>
         </div>
       </div>
-      <div class="left-design-element">
+      <div class="left-design-element" id="left-design-element">
         <img src="./images/left-side-design-element.png" />
       </div>
-      <div class="right-design-element">
+      <div class="right-design-element" id="right-design-element">
         <img src="./images/right-side-design-element.png" />
       </div>
     </div>
@@ -329,123 +326,63 @@
       const TEMPLATE8 = document.getElementById("template8-wrapper");
       const TEMPLATE9 = document.getElementById("template9-wrapper");
       const TEMPLATE10 = document.getElementById("template10-wrapper");
+      const ANIMATION_ELEMENT1 = document.getElementById("animationElement1");
+      const ANIMATION_ELEMENT2 = document.getElementById("animationElement2");
 
-      const ANIMATION_TEMPLATES = [
-        {
-          name: TEMPLATE1,
-          initialPosition: { x: 200, y: 200, opacity: 0, ease: "slow" },
-          finalPosition: { x: 100, y: 100, opacity: 1, ease: "slow" },
-        },
-        {
-          name: TEMPLATE2,
-          initialPosition: { x: 100, y: 200, opacity: 0 },
-          finalPosition: { x: 100, y: 100, opacity: 1 },
-        },
-        {
-          name: TEMPLATE3,
-          initialPosition: { x: 200, y: 100, opacity: 0 },
-          finalPosition: { x: 100, y: 200, opacity: 1 },
-        },
-        {
-          name: TEMPLATE4,
-          initialPosition: { x: -100, y: -200, opacity: 0 },
-          finalPosition: { x: -100, y: 100, opacity: 1 },
-        },
-        {
-          name: TEMPLATE5,
-          initialPosition: { x: -100, y: 200, opacity: 0 },
-          finalPosition: { x: 200, y: 100, opacity: 1 },
-        },
-        {
-          name: TEMPLATE6,
-          initialPosition: { x: 100, y: -200, opacity: 0 },
-          finalPosition: { x: 100, y: 100, opacity: 1 },
-        },
-        {
-          name: TEMPLATE7,
-          initialPosition: { x: 100, y: 200, opacity: 0 },
-          finalPosition: { x: 100, y: -100, opacity: 1 },
-        },
-        {
-          name: TEMPLATE8,
-          initialPosition: { x: 200, y: 200, opacity: 0 },
-          finalPosition: { x: -100, y: -100, opacity: 1 },
-        },
-        {
-          name: TEMPLATE9,
-          initialPosition: { x: -100, y: 100, opacity: 0 },
-          finalPosition: { x: 100, y: 100, opacity: 1 },
-        },
-        {
-          name: TEMPLATE10,
-          initialPosition: { x: 100, y: 100, opacity: 0 },
-          finalPosition: { x: 200, y: 100, opacity: 1 },
-        },
+      const TEMPLATES = [
+        TEMPLATE1,
+        TEMPLATE2,
+        TEMPLATE3,
+        TEMPLATE4,
+        TEMPLATE5,
+        TEMPLATE6,
+        TEMPLATE7,
+        TEMPLATE8,
+        TEMPLATE9,
+        TEMPLATE10,
       ];
 
+      const DIRECTIONS = [-100, 100];
+
       const playAnimation = () => {
-        IMAGE.style.opacity = 1;
-        gsap
-          .timeline()
-          .from(IMAGE, { scale: 2 })
-          .to(IMAGE, {
-            clipPath: "polygon(0% 0%,200% 0%,200% 200%,0% 200%)",
-          })
-          .to(IMAGE, { scale: 1, duration: 1 })
-          .to(IMAGE, {
-            duration: 1,
-            y: 10,
-            stagger: { each: 0.15, yoyo: true, repeat: -1 },
-            ease: "sine.inOut",
-          });
+        TEMPLATES.forEach((template) => {
+          const TEMPLATE = {
+            name: template,
+            animationProperties: {
+              x: DIRECTIONS[Math.random() < 0.5 ? 0 : 1],
+              y: DIRECTIONS[Math.random() < 0.5 ? 0 : 1],
+              opacity: 0,
+              duration: 1,
+            },
+          };
+          TEMPLATES.splice(TEMPLATES.indexOf(template), 1, TEMPLATE);
+        });
+
+        gsap.to(ANIMATION_ELEMENT1, { x: 500, duration: 9 });
+        gsap.to(ANIMATION_ELEMENT2, { x: -500, duration: 9 });
+
+        gsap.timeline().to(IMAGE, { duration: 1, opacity: 1 });
 
         setTimeout(() => {
           gsap.to(FIRST_STEP, {
             duration: 1,
-            x: 60,
+            x: 30,
             opacity: 1,
           });
         }, 990);
 
         setTimeout(() => {
-          ADD_TEXT.style.opacity = 1;
-          gsap
-            .timeline()
-            .from(ADD_TEXT, { scale: 2 })
-            .to(ADD_TEXT, {
-              clipPath: "polygon(0% 0%,200% 0%,200% 200%,0% 200%)",
-            })
-            .to(ADD_TEXT, { scale: 0.95, duration: 1 })
-            .to(ADD_TEXT, {
-              duration: 1,
-              y: 10,
-              stagger: { each: 0.15, yoyo: true, repeat: -1 },
-              ease: "sine.inOut",
-            });
+          gsap.timeline().to(ADD_TEXT, { duration: 1, opacity: 1 });
         }, 990);
 
         setTimeout(() => {
-          SECOND_STEP.style.opacity;
           gsap.to(SECOND_STEP, { duration: 1, x: 40, opacity: 1 });
         }, 2000);
 
         setTimeout(() => {
-          ANIMATION_TEMPLATES.forEach((template) => {
-            gsap
-              .timeline()
-              .fromTo(
-                template.name,
-                template.initialPosition,
-                template.finalPosition
-              );
-            gsap.timeline().to(template.name, {
-              x: "random(20, 10, 3)",
-              y: "random(20, 10, 3)",
-              ease: "none",
-              repeat: -1,
-              repeatRefresh: true,
-              duration: 1,
-            });
+          TEMPLATES.forEach((template) => {
+            template.name.style.opacity = 1;
+            gsap.timeline().from(template.name, template.animationProperties);
           });
         }, 2000);
       };
